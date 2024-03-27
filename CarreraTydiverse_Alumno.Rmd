@@ -172,8 +172,7 @@ cran2[order(cran2$country, cran2$r_version, cran2$ip_id), decreasing = c(F, T, F
 14. Selecciona el subconjunto formado por las variables, del `cran`, `ip_id, package y size` 
 en este orden y almacénalas en `cran3`.
 ```{r}
-
-
+cran3 <- select(cran, ip_id, package, size)
 ```
 
 15. Crea una nueva variable en `cran3` llamada `size_mb` que contenga el tamaño de la descarga expresado en Mbytes ($1Mbyte=2^{20}$ bytes).
