@@ -112,7 +112,6 @@ mydf %>% head
 mydf %>% tail
 mydf %>% str
 mydf %>% dim
-
 ```
 2. Para facilitar el manejo transforma los datos en un tibble `as_tibble` y almacena el resultado con el nombre `cran`, y borra el data frame original (usa `rm`)
 ```{r}
@@ -121,8 +120,9 @@ rm(mydf)
 ```
 3. Una ventaja de trasformar en tibble es la visualización. Escribe directamente el nombre de la variable y observa la visualización. Posteriormente usa la función `glimpse` sobre `cran` y observa el resultado.
 ```{r}
+cran
 
-
+glimpse(cran)
 ```
 # dplyr
 **No almacenes el resultado de las operaciones, salvo que sea necesario**
