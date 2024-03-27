@@ -87,19 +87,6 @@ Se pueden descargar ficheros actuales del `logs` usando la librería https://r-h
 
 **Nota**: El siguiente bloque puede tardar en ejecutarse por lo que solo lo ejecutaremos una vez. Después usaremos la selección de registros almacenada en el fichero Rdata.
 
-
-```{r,eval=FALSE}
-# Fuente de datos http://cran-logs.rstudio.com/
-mydf <- read_csv("./data/2024-03-12.csv")
-
-set.seed(seed=14032024)
-N<-200000
-I<-sample(1:nrow(mydf),size=N,replace=FALSE)
-mydf<-mydf[I,]
-# Guardamos en formato binario, la primera vez que cargamos
-save(file = './data/2024-03-12.Rdata',list=c('mydf'))
-```
-
 Después de la primera carga poner **eval=FALSE** en el *chunk* anterior para acelerar la ejecución.
 
 ```{r}
@@ -142,7 +129,7 @@ select(cran, - date, -time, - size)
 ```
 6. Elige aquellos registros en los que se haya descargado el paquete `plotly`, desde un sistema que ejecuta la versión de R 3.5.1
 ```{r}
-
+subset(cran, package == "plotly" & r_version == "3.5.1")
 ```
 6. Elige aquellas descargas realizadas desde España (ES), con versiones de R superiores a la 3.4.0
 ```{r}
