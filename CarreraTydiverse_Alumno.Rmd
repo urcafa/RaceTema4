@@ -143,7 +143,7 @@ subset(cran, country == "ES" | country == "PT")
 
 8. Elige aquellas descargas cuyo tamaño supera los 100500 bytes desde un sistema operativo  `linux-gnu`.
 ```{r}
-
+subset(cran, size > 100500 & r_os == "linux-gnu")
 ```
 9. Elige aquellas descargas en las que la versión del sistema operativo no está vacía.
 ```{r}
