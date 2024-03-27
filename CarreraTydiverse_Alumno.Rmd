@@ -189,14 +189,16 @@ mutate(cran3, correct_size = size + 1000)
 ```
 18. Usa `summarise` para determinar el valor medio del tamaño de las descargas realizadas en `cran` y almacenálo en la variable `avg_bytes`
 ```{r}
-avg_bytes <- summarise(cran, sum(size))
+avg_bytes <- summarise(cran, mean(size))
 ```
 # Agrupamientos
 
 19. Crea un agrupamiento del tibble `cran` según la variable `package` y almacénalo en la variable `by_package`. Observa el nuevo elemento creado y aunque aparentemente no hay cambio al principio, se indica que se ha hecho un agrupamiento. Éste agrupamiento se puede deshacer con la función `ungroup`.
 ```{r}
+by_package <- group_by(cran, package)
+by_package
 
-
+ungroup(by_package)
 ```
 
 20. Usa la función `summarise` sobre  el elemento agrupado y calcula  el valor medio de la variable `size`. Observa el efecto del agrupamiento en el resultado.
